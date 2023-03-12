@@ -1,0 +1,26 @@
+.myBtn{
+    outline: 1px solid mediumslateblue;
+    color: rgb(34, 34, 34);
+    transition: all 1s;
+}
+
+.myBtn:hover{
+    outline: 1px solid mediumslateblue;
+    background-color: mediumslateblue;
+    transition: all 1s;
+    color: white;
+}
+.myNav{
+    margin-top: 70px;
+}
+.imgContact img{
+    width: 99%;
+    height: 220px;
+}
+.myMap iframe{
+    width: 100%;
+    height: 200px;
+}
+.myLogo{
+    filter:drop-shadow(3px 5px 3px white);
+}
