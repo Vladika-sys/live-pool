@@ -105,17 +105,13 @@
         <h2 class="text-center">Our products</h2>
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <?php
-            $connection = mysqli_connect("localhost", "root", "", "cakes");
-            if ($connection->connect_error) {
-                die("Conectiune esuata: " . $connection->connect_error);
-            }
-            $sql = "SELECT id, cakeName, cakeDescription, cakePhoto FROM cakes";
-            $stmt = mysqli_prepare($connection, $sql);
-            mysqli_stmt_execute($stmt);
-            $result = mysqli_stmt_get_result($stmt);
+            require "dbConnection.php";
 
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo '<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+            if(isset($connection)){
+                $sql = "SELECT id, cakeName, cakeDescription, cakePhoto FROM cakes";
+                $result = mysqli_query($connection, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                    echo '<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
                     <div class="card">
                         <img src="images/carusel/' . $row["cakePhoto"] . '" class="card-img-top" alt="Img1">
                         <div class="card-body">
@@ -124,8 +120,9 @@
                         </div>
                     </div>
                 </div>';
+                    }
             }
-            mysqli_close($connection);
+            $connection->close();
             ?>
         </div>
     </div>
@@ -137,19 +134,18 @@
                 <div class="form-group">
                     <h3 class="text-center">Care este cake-ul tau preferat?</h3><br>
                     <?php
-                    $sqlk = "SELECT * FROM `cakes`";
-                    $connection = mysqli_connect("localhost", "root", "", "cakes");
-                    if ($connection->connect_error) {
-                        die("Conectiune esuata: " . $connection->connect_error);
-                    }
-                    $result = mysqli_query($connection, $sqlk);
-                    while ($row = mysqli_fetch_array($result)) {
-                        echo '<div class="form-check form-check-inline mt-2 text-center">
+                    require "dbConnection.php";
+                    if(isset($connection)){
+                        $sqlk = "SELECT * FROM `cakes`";
+                        $result = mysqli_query($connection, $sqlk);
+                        while ($row = mysqli_fetch_array($result)) {
+                            echo '<div class="form-check form-check-inline mt-2 text-center">
                     <input class="form-check-input" type="radio" name="cake"id="'.$row['id'].'" value="' . $row["id"] . '">
                     <label class="form-check-label" for="'.$row["id"].'">' . $row["cakeName"].$row["id"]. '</label>
                 </div>';
+                        }
                     }
-                    mysqli_close($connection);
+                  $connection->close();
                     ?>
 
                 </div>

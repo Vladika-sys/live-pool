@@ -44,6 +44,7 @@ $(document).ready(function() {
     $("#vote-form").submit(function(event) {
         event.preventDefault();
         var selectedCake = $('input[name=cake]:checked', '#vote-form').val();
+        console.log(selectedCake);
         $.ajax({
             type: "POST",
             url: "vote.php",

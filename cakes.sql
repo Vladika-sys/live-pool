@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1
--- Время создания: Мар 12 2023 г., 12:41
+-- Время создания: Мар 12 2023 г., 17:12
 -- Версия сервера: 10.4.27-MariaDB
 -- Версия PHP: 8.2.0
 
@@ -62,11 +62,11 @@ CREATE TABLE `cake_votes` (
 --
 
 INSERT INTO `cake_votes` (`id`, `cakeId`, `numberOfVotes`) VALUES
-(1, 1, 42),
-(3, 2, 17),
-(4, 3, 11),
-(42, 5, 14),
-(73, 4, 7);
+(120, 1, 10),
+(121, 2, 6),
+(122, 3, 4),
+(123, 4, 7),
+(124, 5, 7);
 
 --
 -- Индексы сохранённых таблиц
@@ -99,7 +99,7 @@ ALTER TABLE `cakes`
 -- AUTO_INCREMENT для таблицы `cake_votes`
 --
 ALTER TABLE `cake_votes`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=109;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=125;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
